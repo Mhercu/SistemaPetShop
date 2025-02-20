@@ -20,13 +20,17 @@ from rest_framework.routers import SimpleRouter
 from rest_framework.authtoken import views
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from users.api.views import UserProfileExampleViewSet
-from petshop.api.views import UsuarioViewSet, ProdutoViewSet, PetViewSet, AgendamentoViewSet
+from petshop.api.views import AdministradorViewSet, ClienteViewSet, DadosMedicosViewSet, UsuarioViewSet, ProdutoViewSet, PetViewSet, AgendamentoViewSet, VeterinarioViewSet
 
 router = SimpleRouter()
 
 
 router.register('usuarios', UsuarioViewSet, basename='usuarios')
+router.register('administradores', AdministradorViewSet, basename='administradores')
+router.register('clientes', ClienteViewSet, basename='clientes')
+router.register('veterinarios', VeterinarioViewSet, basename='veterinarios')
 router.register('produtos', ProdutoViewSet, basename='produtos')
+router.register('dados-medicos', DadosMedicosViewSet, basename='dados-medicos')
 router.register('pets', PetViewSet, basename='pets')
 router.register('agendamentos', AgendamentoViewSet, basename='agendamentos')
 
