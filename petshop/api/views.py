@@ -1,6 +1,19 @@
-from rest_framework.viewsets import ModelViewSet
+from rest_framework import viewsets
+from petshop.models import Usuario, Produto, Pet, Agendamento
+from .serializers import UsuarioSerializer, ProdutoSerializer, PetSerializer, AgendamentoSerializer
 
-from petshop.api.serializers import petshopSerializer
+class UsuarioViewSet(viewsets.ModelViewSet):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
 
-class petshopViewSet(ModelViewSet):
-    serializer_class = petshopSerializer
+class ProdutoViewSet(viewsets.ModelViewSet):
+    queryset = Produto.objects.all()
+    serializer_class = ProdutoSerializer
+
+class PetViewSet(viewsets.ModelViewSet):
+    queryset = Pet.objects.all()
+    serializer_class = PetSerializer
+
+class AgendamentoViewSet(viewsets.ModelViewSet):
+    queryset = Agendamento.objects.all()
+    serializer_class = AgendamentoSerializer

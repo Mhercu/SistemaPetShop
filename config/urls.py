@@ -20,12 +20,15 @@ from rest_framework.routers import SimpleRouter
 from rest_framework.authtoken import views
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from users.api.views import UserProfileExampleViewSet
-from petshop.api.views import petshopViewSet
+from petshop.api.views import UsuarioViewSet, ProdutoViewSet, PetViewSet, AgendamentoViewSet
 
 router = SimpleRouter()
 
-router.register("users", UserProfileExampleViewSet, basename="users")
-router.register("petshop", petshopViewSet, basename="petshop")
+
+router.register('usuarios', UsuarioViewSet, basename='usuarios')
+router.register('produtos', ProdutoViewSet, basename='produtos')
+router.register('pets', PetViewSet, basename='pets')
+router.register('agendamentos', AgendamentoViewSet, basename='agendamentos')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
